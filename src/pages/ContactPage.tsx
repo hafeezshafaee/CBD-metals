@@ -9,7 +9,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '0475 625 766', href: 'tel:0475625766' },
-  { icon: Mail, label: 'Email', value: 'info@cbdscrapcarremoval.com.au', href: 'mailto:info@cbdscrapcarremoval.com.au' },
+  { icon: Mail, label: 'Email', value: 'cbdscrapcarremoval@gmail.com', href: 'mailto:cbdscrapcarremoval@gmail.com' },
   { icon: MapPin, label: 'Address', value: '4 Attwell Street, Landsdale WA 6065', href: 'https://maps.google.com/?q=4+Attwell+Street,+Landsdale+WA+6065' },
   { icon: Clock, label: 'Hours', value: 'Mon – Sat: 7:00 AM – 7:00 PM', href: null },
 ];

@@ -6,17 +6,9 @@ import { Button } from '@/components/ui/button';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  {
-    label: 'Services',
-    href: '/services',
-    dropdown: [
-      { label: 'Cash For Cars', href: '/services' },
-      { label: 'Car Wrecking', href: '/services' },
-      { label: 'Free Car Removal', href: '/services' },
-      { label: 'Cash For Trucks', href: '/services' },
-    ],
-  },
+
   { label: 'About Us', href: '/about' },
+  { label: 'services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -45,14 +37,13 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-black/95 backdrop-blur-md shadow-lg' : 'bg-brand-black'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-black/95 backdrop-blur-md shadow-lg' : 'bg-brand-black'
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          {/* <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 bg-brand-yellow rounded-lg flex items-center justify-center">
               <span className="text-brand-black font-bold text-xl">C</span>
             </div>
@@ -60,6 +51,13 @@ export default function Header() {
               <span className="text-white font-bold text-lg leading-tight"> CBD </span>
               <span className="text-brand-yellow font-bold text-lg leading-tight block">Scrap Car Removal</span>
             </div>
+          </Link> */}
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/images/logo.png"
+              alt="CBD Scrap Car Removal"
+              className="h-20 w-20  object-cover rounded-full object-cover"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -73,9 +71,8 @@ export default function Header() {
               >
                 <Link
                   to={item.href}
-                  className={`flex items-center gap-1 px-4 py-2 font-medium text-sm transition-colors duration-300 relative ${
-                    isActive(item.href) ? 'text-brand-yellow' : 'text-white hover:text-brand-yellow'
-                  }`}
+                  className={`flex items-center gap-1 px-4 py-2 font-medium text-sm transition-colors duration-300 relative ${isActive(item.href) ? 'text-brand-yellow' : 'text-white hover:text-brand-yellow'
+                    }`}
                 >
                   {item.label}
                   {item.dropdown && (
@@ -151,9 +148,8 @@ export default function Header() {
                 <div key={item.label}>
                   <Link
                     to={item.href}
-                    className={`block py-3 text-lg font-medium transition-colors duration-300 border-b border-brand-dark-gray/40 ${
-                      isActive(item.href) ? 'text-brand-yellow' : 'text-white hover:text-brand-yellow'
-                    }`}
+                    className={`block py-3 text-lg font-medium transition-colors duration-300 border-b border-brand-dark-gray/40 ${isActive(item.href) ? 'text-brand-yellow' : 'text-white hover:text-brand-yellow'
+                      }`}
                   >
                     {item.label}
                   </Link>

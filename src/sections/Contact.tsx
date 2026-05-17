@@ -17,8 +17,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@cbdscrapcarremoval.com.au',
-    href: 'mailto:info@cbdscrapcarremoval.com.au',
+    value: 'cbdscrapcarremoval@gmail.com',
+    href: 'mailto:cbdscrapcarremoval@gmail.com',
   },
   {
     icon: MapPin,

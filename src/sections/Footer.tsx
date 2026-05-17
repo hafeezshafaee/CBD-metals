@@ -134,16 +134,16 @@ export default function Footer() {
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-brand-yellow flex-shrink-0 mt-0.5" />
                   <a
-                    href="mailto:info@cbdscrapcarremoval.com.au"
+                    href="mailto:cbdscrapcarremoval@gmail.com"
                     className="text-gray-400 text-sm hover:text-brand-yellow transition-colors duration-300"
                   >
-                    info@cbdscrapcarremoval.com.au
+                    cbdscrapcarremoval@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-brand-yellow flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400 text-sm">
-                    Perth Western Australia
+                    CBD Perth Western Australia
                   </span>
                 </li>
               </ul>
@@ -152,7 +152,7 @@ export default function Footer() {
               <div className="mt-6 pt-6 border-t border-brand-dark-gray">
                 <p className="text-gray-500 text-sm mb-2">Business Hours</p>
                 <p className="text-white text-sm">
-                  Mon - Sat: 7:00 AM - 7:00 PM
+                  Mon - Sat: 7:00 AM - 9:00 PM
                 </p>
               </div>
             </div>
@@ -163,6 +163,9 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm text-center sm:text-left">
             © {new Date().getFullYear()} CDB Scrap Car Removal. All Rights Reserved.
+          </p>
+          <p className="text-gray-500 text-sm text-center sm:text-left">
+           Made by CBD Scrap Car Removal Team!
           </p>
 
           {/* Scroll to Top */}
