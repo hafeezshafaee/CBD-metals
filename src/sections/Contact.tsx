@@ -23,8 +23,8 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Address',
-    value: '4 Attwell Street, Landsdale WA 6065',
-    href: 'https://maps.google.com/?q=4+Attwell+Street,+Landsdale+WA+6065',
+    value: 'CBD Perth Western Australia',
+    href: 'https://maps.app.goo.gl/WgD84uHtJ1oPJNQt6',
   },
   {
     icon: Clock,

@@ -10,7 +10,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '0475 625 766', href: 'tel:0475625766' },
   { icon: Mail, label: 'Email', value: 'cbdscrapcarremoval@gmail.com', href: 'mailto:cbdscrapcarremoval@gmail.com' },
-  { icon: MapPin, label: 'Address', value: '4 Attwell Street, Landsdale WA 6065', href: 'https://maps.google.com/?q=4+Attwell+Street,+Landsdale+WA+6065' },
+  { icon: MapPin, label: 'Address', value: 'CBD Perth Western Australia', href: 'https://maps.app.goo.gl/WgD84uHtJ1oPJNQt6' },
   { icon: Clock, label: 'Hours', value: 'Mon – Sat: 7:00 AM – 7:00 PM', href: null },
 ];
 
@@ -189,9 +189,9 @@ export default function ContactPage() {
           </div>
           <div className="text-center relative z-10">
             <MapPin className="w-10 h-10 text-brand-yellow mx-auto mb-3" />
-            <p className="text-white font-semibold text-lg">Perth Western Australia</p>
+            <p className="text-white font-semibold text-lg">CBD Perth Western Australia</p>
             <a
-              href="https://maps.google.com/?q=4+Attwell+Street,+Landsdale+WA+6065"
+              href="https://maps.app.goo.gl/WgD84uHtJ1oPJNQt6"
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-yellow hover:underline text-sm mt-2 inline-block"

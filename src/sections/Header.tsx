@@ -44,7 +44,7 @@ export default function Header() {
             <img
               src="/images/logo.png"
               alt="CBD Scrap Car Removal"
-              className="h-20 w-20 object-cover rounded-full"
+              className="h-20 w-30  "
             />
           </Link>
 

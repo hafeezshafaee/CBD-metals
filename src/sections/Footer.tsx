@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="text-white font-bold text-lg leading-tight block">
-                  CDB Scrap Car Removal
+                    CDB Scrap Car Removal
                   </span>
                   <span className="text-brand-yellow font-bold text-lg leading-tight block">
                     Removal
@@ -55,8 +55,8 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Perth's leading scrap car removal company offering top cash for unwanted 
-                vehicles. Free towing, instant payment, same-day service across 
+                Perth's leading scrap car removal company offering top cash for unwanted
+                vehicles. Free towing, instant payment, same-day service across
                 all Perth suburbs.
               </p>
               {/* Social Links */}
@@ -140,11 +140,22 @@ export default function Footer() {
                     cbdscrapcarremoval@gmail.com
                   </a>
                 </li>
-                <li className="flex items-start gap-3">
+                {/* <li  className="flex items-start gap-3"  >
                   <MapPin className="w-5 h-5 text-brand-yellow flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400 text-sm">
+                  <span className="text-gray-400 text-sm" >
                     CBD Perth Western Australia
                   </span>
+                </li> */}
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-brand-yellow flex-shrink-0 mt-0.5" />
+                  <a
+                    href="https://maps.app.goo.gl/WgD84uHtJ1oPJNQt6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 text-sm hover:text-brand-yellow transition-colors"
+                  >
+                    CBD Perth Western Australia
+                  </a>
                 </li>
               </ul>
 
@@ -165,7 +176,7 @@ export default function Footer() {
             © {new Date().getFullYear()} CDB Scrap Car Removal. All Rights Reserved.
           </p>
           <p className="text-gray-500 text-sm text-center sm:text-left">
-           Made by CBD Scrap Car Removal Team!
+            Made by CBD Scrap Car Removal Team!
           </p>
 
           {/* Scroll to Top */}
@@ -179,7 +190,7 @@ export default function Footer() {
             <ArrowUp className="w-5 h-5" />
           </motion.button>
         </div>
-      </div>
-    </footer>
+      </div >
+    </footer >
   );
 }
