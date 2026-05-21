@@ -123,13 +123,13 @@ export default function AboutPage() {
                   <img src="/images/why-choose-us.jpg" alt="CDB Scrap Car Removal team" className="w-full h-auto object-cover" />
                 </motion.div>
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-yellow/20 rounded-2xl -z-0" />
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-brand-light-green/20 rounded-2xl -z-0" />
+                <div className="absolute -bottom-8 -left-6 w-24 h-24 bg-brand-light-green/20 rounded-2xl -z-0" />
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="absolute -bottom-8 left-8 bg-brand-yellow rounded-xl p-5 shadow-xl"
+                  className=" -bottom-35 left-8 bg-brand-yellow rounded-xl p-5 shadow-xl"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-brand-black rounded-lg flex items-center justify-center">

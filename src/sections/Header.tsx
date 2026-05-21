@@ -42,7 +42,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
-              src="/images/logo.png"
+              src="/images/logo.jpeg"
               alt="CBD Scrap Car Removal"
               className="h-20 w-30  "
             />
