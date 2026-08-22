@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { DollarSign, Car, Truck, Recycle, Wrench, Handshake, CheckCircle, Clock, Phone, ArrowRight } from 'lucide-react';
+import { DollarSign, Car, Truck, Recycle, Wrench, Handshake, CheckCircle, Clock, Phone, ArrowRight, Layers, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 
 const services = [
@@ -59,11 +60,56 @@ const services = [
     description: 'The quickest way to sell your car in Perth. Get a quote in minutes, agree on a price, and receive cash the same day.',
     features: ['Quote in minutes', 'Best market price', 'No advertising needed', 'Instant payment'],
   },
+  {
+    icon: Recycle,
+    title: 'Scrap Metal Collection',
+    color: 'bg-brand-light-green',
+    description: 'Free collection of all scrap metals across all Perth suburbs. Copper, aluminium, steel, brass, and more — we come to you.',
+    features: ['Free pickup service', 'All Perth suburbs', 'Same-day available', 'Large loads welcome'],
+  },
+  {
+    icon: DollarSign,
+    title: 'Cash For Metals',
+    color: 'bg-brand-yellow',
+    description: 'Top cash prices for all types of scrap metal. Ferrous, non-ferrous, mixed loads — we accept everything and pay on the spot.',
+    features: ['Instant cash payment', 'All metal types', 'Best rates in Perth', 'No hidden fees'],
+  },
+];
+
+const metalServices = [
+  {
+    icon: DollarSign,
+    title: 'Cash For Scrap Metal',
+    color: 'bg-brand-yellow',
+    description: 'Turn your unwanted scrap metal into instant cash. Best prices in Perth for copper, aluminium, steel, brass, and all other metals.',
+    features: ['Instant cash payment', 'Best prices in Perth', 'All quantities welcome', 'No hidden fees'],
+  },
+  {
+    icon: Truck,
+    title: 'Scrap Metal Collection',
+    color: 'bg-brand-light-green',
+    description: 'Free collection service across all Perth suburbs. We bring our truck and do all the loading — completely free of charge.',
+    features: ['Free pickup service', 'All Perth suburbs', 'Same-day available', 'Large loads welcome'],
+  },
+  {
+    icon: Recycle,
+    title: 'Metal Recycling',
+    color: 'bg-brand-light-blue',
+    description: 'Environmentally responsible metal recycling. All metals processed in compliance with WA environmental standards.',
+    features: ['Eco-friendly process', 'WA compliant', 'Certified recycling', 'Responsible disposal'],
+  },
+  {
+    icon: Layers,
+    title: 'Industrial Metal Removal',
+    color: 'bg-brand-light-yellow',
+    description: 'Large-scale removal for businesses, construction sites, and industrial properties. We handle heavy loads with ease.',
+    features: ['Business & industrial', 'Heavy equipment welcome', 'Site clearance', 'Flexible scheduling'],
+  },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
       <section className="py-20 lg:py-28 bg-brand-new-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -73,10 +119,10 @@ export default function ServicesPage() {
           <ScrollReveal className="text-center max-w-3xl mx-auto">
             <span className="inline-block bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold text-sm mb-4">Our Services</span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Everything You Need to <span className="text-brand-yellow">Sell Your Car</span>
+              Everything You Need to <span className="text-brand-yellow">Sell Your Car or Metal</span>
             </h1>
             <p className="text-lg text-gray-400 mb-8">
-              From cash for cars to free towing and eco-friendly recycling — we offer Perth's most comprehensive car removal services, all under one roof.
+              From cash for cars to scrap metal collection — we offer Perth's most comprehensive car removal and metal recycling services, all under one roof.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
@@ -126,8 +172,69 @@ export default function ServicesPage() {
             ))}
           </StaggerContainer>
 
-          {/* CTA */}
-          <ScrollReveal delay={0.4} className="text-center mt-16">
+        </div>
+      </section>
+
+      {/* Scrap Metal Services */}
+      <section className="py-20 lg:py-28 bg-brand-new-black">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-14">
+            <span className="inline-block bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold text-sm mb-4">Scrap Metal Perth</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Scrap Metal Services</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Beyond cars — we also pay top cash for all types of scrap metal across Perth with free collection.
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid sm:grid-cols-2 gap-8 mb-12">
+            {metalServices.map((service) => (
+              <StaggerItem key={service.title}>
+                <motion.div
+                  whileHover={{ y: -6, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-brand-dark-gray border border-brand-dark-gray rounded-2xl p-8 h-full group hover:border-brand-yellow/30 transition-colors duration-300"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="w-8 h-8 text-brand-black" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                      <p className="text-gray-400 leading-relaxed mb-5">{service.description}</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {service.features.map((feature) => (
+                          <div key={feature} className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4 text-brand-yellow flex-shrink-0" />
+                            <span className="text-sm text-gray-300">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <ScrollReveal className="text-center">
+            <Link to="/MetalsPage">
+              <motion.span
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 bg-brand-yellow text-brand-black font-semibold px-8 py-4 rounded-xl hover:bg-brand-light-green transition-colors duration-300"
+              >
+                View All Metal Services
+                <ArrowRight className="w-5 h-5" />
+              </motion.span>
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal delay={0.4} className="text-center">
             <div className="bg-brand-new-black rounded-2xl p-10 sm:p-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Not Sure Which Service You Need?
