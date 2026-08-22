@@ -61,6 +61,18 @@ const services = [
     description: 'Quick and easy car selling process. Get a quote in minutes.',
     color: 'bg-brand-light-yellow',
   },
+  {
+    icon: Recycle,
+    title: 'Scrap Metal Collection',
+    description: 'Free collection of all scrap metals across Perth. Copper, aluminium, steel and more.',
+    color: 'bg-brand-light-green',
+  },
+  {
+    icon: DollarSign,
+    title: 'Cash For Metals',
+    description: 'Top prices for all scrap metals. Instant cash payment on collection.',
+    color: 'bg-brand-yellow',
+  },
 ];
 
 export default function Services() {

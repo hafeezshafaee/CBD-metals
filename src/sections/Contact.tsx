@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import ScrollReveal from '@/components/ScrollReveal';
 
+const CONTACT_EMAIL = 'scrapcarremoval@gmail.com';
+
 const contactInfo = [
   {
     icon: Phone,
@@ -29,7 +31,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: 'Hours',
-    value: 'Mon - Sat: 7:00 AM - 7:00 PM',
+    value: 'Mon - Sat: 5:00 AM - 7:00 PM',
     href: null,
   },
 ];
@@ -42,17 +44,47 @@ export default function Contact() {
     carDetails: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Thank you! We will contact you shortly with your free quote.');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      carDetails: '',
-      message: '',
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || 'Not provided',
+          carDetails: formData.carDetails,
+          message: formData.message || 'None',
+          _subject: 'New Quote Request - CBD Scrap Car Removal',
+          _template: 'table',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      toast.success('Thank you! We will contact you shortly with your free quote.');
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        carDetails: '',
+        message: '',
+      });
+    } catch {
+      toast.error('Something went wrong. Please call us at 0475 625 766.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -224,10 +256,11 @@ export default function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-brand-yellow text-brand-black font-semibold py-6 rounded-lg hover:bg-brand-light-green transition-all duration-300 text-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-yellow text-brand-black font-semibold py-6 rounded-lg hover:bg-brand-light-green transition-all duration-300 text-lg disabled:opacity-60"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Get My Free Quote
+                  {isSubmitting ? 'Sending...' : 'Get My Free Quote'}
                 </Button>
 
                 <p className="text-center text-gray-500 text-sm">
