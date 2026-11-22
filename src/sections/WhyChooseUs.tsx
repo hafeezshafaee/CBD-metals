@@ -7,7 +7,6 @@ import {
   Users, 
   Recycle, 
   Phone,
-  Award,
   ArrowRight
 } from 'lucide-react';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
@@ -15,13 +14,13 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/Scroll
 const features = [
   {
     icon: DollarSign,
-    title: 'Best Price Guarantee',
-    description: 'We offer the highest cash prices for your unwanted vehicles, guaranteed.',
+    title: 'Competitive Cash Offers',
+    description: 'Tell us your vehicle details and request a quote with no obligation.',
   },
   {
     icon: Clock,
-    title: 'Same Day Service',
-    description: 'Get your car removed and get paid on the same day you call.',
+    title: 'Convenient Collection',
+    description: 'Arrange a collection time that works for your location and schedule.',
   },
   {
     icon: Truck,
@@ -50,8 +49,8 @@ const features = [
   },
   {
     icon: Phone,
-    title: '24/7 Availability',
-    description: 'Call us anytime. We\'re always ready to help you.',
+    title: 'Helpful Support',
+    description: 'Speak with our team about your vehicle and collection options.',
   },
 ];
 
@@ -68,12 +67,10 @@ export default function WhyChooseUs() {
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                 Why Choose{' '}
-                <span className="text-brand-yellow">CDB Scrap Car Removal?</span>
+                <span className="text-brand-yellow">CBD Scrap Car Removal?</span>
               </h2>
               <p className="text-gray-400 text-lg mb-10">
-                We're Perth's most trusted car removal company with years of 
-                experience and thousands of satisfied customers. Our commitment 
-                to excellence sets us apart.
+                We help Perth vehicle owners arrange cash offers and collection for unwanted, damaged and end-of-life vehicles.
               </p>
             </ScrollReveal>
 
@@ -120,29 +117,13 @@ export default function WhyChooseUs() {
               >
                 <img
                   src="/images/why-choose-us.jpg"
-                  alt="Professional car removal service"
+                  alt="Scrap car removal and vehicle collection service in Perth"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover"
                 />
               </motion.div>
 
-              {/* Stats Card — positioned below image, not overlapping */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="relative z-20 mt-4 ml-4 inline-block bg-brand-yellow rounded-xl p-5 shadow-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-brand-black rounded-lg flex items-center justify-center">
-                    <Award className="w-6 h-6 text-brand-yellow" />
-                  </div>
-                  <div>
-                    <p className="text-brand-black font-bold text-2xl">10+</p>
-                    <p className="text-brand-black/70 text-sm">Years Experience</p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
 
             {/* CTA Buttons */}

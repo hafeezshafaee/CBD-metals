@@ -1,48 +1,28 @@
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, CheckCircle, Clock, Truck } from 'lucide-react';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 
 const areas = [
-  { name: 'Perth CBD', time: '< 30 mins' },
-  { name: 'Joondalup', time: '< 45 mins' },
-  { name: 'Fremantle', time: '< 40 mins' },
-  { name: 'Rockingham', time: '< 60 mins' },
-  { name: 'Midland', time: '< 45 mins' },
-  { name: 'Armadale', time: '< 50 mins' },
-  { name: 'Cannington', time: '< 35 mins' },
-  { name: 'Canning Vale', time: '< 40 mins' },
-  { name: 'Ellenbrook', time: '< 50 mins' },
-  { name: 'Bibra Lake', time: '< 40 mins' },
-  { name: 'Osborne Park', time: '< 30 mins' },
-  { name: 'Mandurah', time: '< 75 mins' },
-  { name: 'Baldivis', time: '< 65 mins' },
-  { name: 'Byford', time: '< 55 mins' },
-  { name: 'Cockburn', time: '< 40 mins' },
-  { name: 'Dianella', time: '< 25 mins' },
-  { name: 'Girrawheen', time: '< 30 mins' },
-  { name: 'High Wycombe', time: '< 40 mins' },
-  { name: 'Kalamunda', time: '< 45 mins' },
-  { name: 'Kelmscott', time: '< 50 mins' },
-  { name: 'Malaga', time: '< 25 mins' },
-  { name: 'Morley', time: '< 25 mins' },
-  { name: 'Thornlie', time: '< 40 mins' },
-  { name: 'Willetton', time: '< 40 mins' },
-  { name: 'Yangebup', time: '< 45 mins' },
-  { name: 'Claremont', time: '< 25 mins' },
-  { name: 'Subiaco', time: '< 20 mins' },
-  { name: 'Victoria Park', time: '< 20 mins' },
+  'Perth CBD', 'Joondalup', 'Fremantle', 'Rockingham', 'Midland',
+  'Armadale', 'Cannington', 'Canning Vale', 'Ellenbrook', 'Bibra Lake',
+  'Osborne Park', 'Mandurah', 'Baldivis', 'Byford', 'Cockburn',
+  'Dianella', 'Girrawheen', 'High Wycombe', 'Kalamunda', 'Kelmscott',
+  'Malaga', 'Morley', 'Thornlie', 'Willetton', 'Yangebup',
+  'Claremont', 'Subiaco', 'Victoria Park',
 ];
 
 const highlights = [
-  { icon: Clock, title: 'Same-Day Service', description: 'Call us before noon and we\'ll have your car collected the same day in most Perth suburbs.' },
+  { icon: Clock, title: 'Collection Options', description: 'Call us before noon and we\'ll have your car collected the same day in most Perth suburbs.' },
   { icon: Truck, title: 'Free Towing', description: 'No matter where you are in the Perth metro area, our towing service is 100% free.' },
-  { icon: MapPin, title: 'All Perth Suburbs', description: 'We cover the full Perth metro area from Joondalup in the north to Mandurah in the south.' },
+  { icon: MapPin, title: 'All Perth Suburbs', description: 'We list a range of Perth metro suburbs. Contact us to confirm your exact location.' },
   { icon: CheckCircle, title: 'No Job Too Far', description: 'Even in outer suburbs or regional areas nearby, we\'ll do our best to come to you.' },
 ];
 
 export default function ServiceAreasPage() {
   return (
     <div className="pt-20">
+      <Seo title="Perth Car Removal Areas | Free Scrap Car Pickup" description="Check Perth suburbs covered by CBD Scrap Car Removal. Contact us to arrange a quote and confirm vehicle collection in your area." path="/service-areas" keywords={['car removal Perth suburbs', 'scrap car removal near me Perth', 'free car pickup Perth']} />
       {/* Hero */}
       <section className="py-20 lg:py-28 bg-brand-new-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -55,7 +35,7 @@ export default function ServiceAreasPage() {
               We Come to <span className="text-brand-yellow">You</span> — Anywhere in Perth
             </h1>
             <p className="text-lg text-gray-400 mb-8">
-            CDB Scrap Car Removal operates across all Perth metro suburbs and surrounding areas. Free pickup, same-day service, cash on the spot.
+            CBD Scrap Car Removal serves Perth metro suburbs and surrounding areas. Contact us to confirm pickup availability and payment arrangements.
             </p>
             <motion.a
               href="tel:0475625766"
@@ -97,13 +77,13 @@ export default function ServiceAreasPage() {
           <ScrollReveal className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-4">Areas We Service</h2>
             <p className="text-brand-light-gray text-lg max-w-2xl mx-auto">
-              We cover 28+ suburbs across the Perth metro area. Estimated arrival times shown for each suburb.
+              We service a range of Perth metro suburbs. Contact us to confirm collection availability in your area.
             </p>
           </ScrollReveal>
 
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {areas.map((area) => (
-              <StaggerItem key={area.name}>
+              <StaggerItem key={area}>
                 <motion.div
                   whileHover={{ y: -4, borderColor: '#f2f047' }}
                   transition={{ duration: 0.2 }}
@@ -112,11 +92,8 @@ export default function ServiceAreasPage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-4 h-4 text-brand-yellow flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-brand-black text-sm group-hover:text-brand-black">{area.name}</p>
-                      <p className="text-xs text-brand-light-gray mt-0.5 flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {area.time}
-                      </p>
+                      <p className="font-semibold text-brand-black text-sm group-hover:text-brand-black">{area}</p>
+
                     </div>
                   </div>
                 </motion.div>
@@ -141,9 +118,9 @@ export default function ServiceAreasPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="bg-brand-dark-gray rounded-2xl p-10 sm:p-16 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Ready for Same-Day Pickup?</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Need Your Car Collected?</h2>
               <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-                Call now and we'll arrange pickup at a time that suits you. Cash on the spot, free towing guaranteed.
+                Call now and we'll arrange pickup at a time that suits you. Confirm the quote and collection arrangements with our team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a

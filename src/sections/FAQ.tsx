@@ -11,7 +11,7 @@ import {
 const faqs = [
   {
     question: 'How much can I get for my car?',
-    answer: 'We pay up to $9,999 depending on your vehicle\'s make, model, year, and condition. Call us for a free quote and we\'ll give you an instant offer based on current market values.',
+    answer: 'We pay competitive cash offers depending on your vehicle\'s make, model, year, and condition. Call us for a free quote and we\'ll give you an instant offer based on current market values.',
   },
   {
     question: 'Is the car removal really free?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'How quickly can you remove my car?',
-    answer: 'We offer same-day service throughout Perth and surrounding areas. Call us early in the day for same-day pickup, or schedule a time that works best for you.',
+    answer: 'Same-day collection may be available in parts of Perth, subject to scheduling. Contact us to check available pickup times.',
   },
   {
     question: 'Do I need to be present when you collect the car?',

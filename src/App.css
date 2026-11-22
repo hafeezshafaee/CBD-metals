@@ -173,3 +173,33 @@ html {
     display: none !important;
   }
 }
+
+
+/* Conversion-focused polish and accessible interaction states */
+:root {
+  color-scheme: light;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a, button {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .card-lift:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

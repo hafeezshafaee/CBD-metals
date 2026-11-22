@@ -4,12 +4,12 @@ import { Phone, DollarSign, Truck, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
+import { submitQuote } from '@/lib/quote';
 
 const benefits = [
-  { icon: DollarSign, text: 'Top dollar paid on the spot' },
+  { icon: DollarSign, text: 'Cash offers for unwanted cars' },
   { icon: Truck, text: 'Free car removal' },
-  { icon: Clock, text: 'Same day service' },
+  { icon: Clock, text: 'Collection arranged to suit you' },
   { icon: CheckCircle, text: 'All vehicles accepted' },
 ];
 
@@ -23,17 +23,24 @@ export default function Hero() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success('Quote request submitted! We will contact you shortly.');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      carMake: '',
-      year: '',
-      message: '',
-    });
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    try {
+      await submitQuote(form);
+      setSubmitStatus({ type: 'success', message: 'Thanks! Your quote request has been sent. We will contact you shortly.' });
+      setFormData({ name: '', phone: '', email: '', carMake: '', year: '', message: '' });
+      form.reset();
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: error instanceof Error ? error.message : 'Something went wrong. Please call us instead.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,7 +72,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold text-sm mb-6"
             >
-              Perth's Leading Scrap Car Removal Company
+              Scrap Car Removal Across Perth
             </motion.div>
 
             <motion.h1
@@ -74,9 +81,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
-              Cash For Cars Perth -{' '}
-              <span className="text-brand-yellow">Get Top Dollar</span> For Your
-              Unwanted Vehicle
+              Scrap Car Removal Perth &{' '}
+              <span className="text-brand-yellow">Cash for Cars</span>
+              Made Simple
             </motion.h1>
 
             <motion.p
@@ -85,7 +92,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-gray-300 mb-8 max-w-xl"
             >
-              We pay instant cash up to <span className="text-brand-yellow font-bold">$9,999</span> for all makes and models. Free car removal service across Perth & surrounding areas.
+              Get a competitive cash offer for your unwanted vehicle, with convenient car collection across Perth and surrounding areas.
             </motion.p>
 
             {/* Benefits */}
@@ -145,15 +152,18 @@ export default function Hero() {
               Get A Free Quote
             </h3>
             <p className="text-gray-400 mb-6">
-              Fill out the form below and we'll get back to you within minutes.
+              Enter your vehicle details and we will get back to you with a free quote.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <input type="hidden" name="_subject" value="New website quote request - Homepage" />
+              <input type="hidden" name="form_source" value="Homepage hero quote form" />
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <Input
                     type="text"
                     name="name"
+                    aria-label="Your name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
@@ -165,6 +175,7 @@ export default function Hero() {
                   <Input
                     type="tel"
                     name="phone"
+                    aria-label="Phone number"
                     placeholder="Phone Number"
                     value={formData.phone}
                     onChange={handleChange}
@@ -178,6 +189,7 @@ export default function Hero() {
                 <Input
                   type="email"
                   name="email"
+                    aria-label="Email address"
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
@@ -190,6 +202,7 @@ export default function Hero() {
                   <Input
                     type="text"
                     name="carMake"
+                    aria-label="Car make and model"
                     placeholder="Car Make/Model"
                     value={formData.carMake}
                     onChange={handleChange}
@@ -201,6 +214,7 @@ export default function Hero() {
                   <Input
                     type="text"
                     name="year"
+                    aria-label="Vehicle year"
                     placeholder="Year"
                     value={formData.year}
                     onChange={handleChange}
@@ -212,6 +226,7 @@ export default function Hero() {
               <div>
                 <Textarea
                   name="message"
+                    aria-label="Additional vehicle information"
                   placeholder="Additional Information (optional)"
                   value={formData.message}
                   onChange={handleChange}
@@ -222,10 +237,17 @@ export default function Hero() {
 
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-brand-yellow text-brand-black font-semibold py-6 rounded-lg hover:bg-brand-light-green transition-all duration-300 text-lg"
               >
-                Get My Free Quote
+                {isSubmitting ? 'Sending...' : 'Get My Free Quote'}
               </Button>
+
+              {submitStatus && (
+                <p role="status" aria-live="polite" className={`text-sm text-center ${submitStatus.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                  {submitStatus.message}
+                </p>
+              )}
 
               <p className="text-center text-gray-500 text-sm">
                 Or call us directly:{' '}

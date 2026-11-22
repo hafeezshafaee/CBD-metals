@@ -4,10 +4,8 @@ import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
+import { submitQuote } from '@/lib/quote';
 import ScrollReveal from '@/components/ScrollReveal';
-
-const CONTACT_EMAIL = 'scrapcarremoval@gmail.com';
 
 const contactInfo = [
   {
@@ -25,13 +23,13 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Address',
-    value: 'CBD Perth Western Australia',
+    value: 'Perth, Western Australia',
     href: 'https://maps.app.goo.gl/WgD84uHtJ1oPJNQt6',
   },
   {
     icon: Clock,
     label: 'Hours',
-    value: 'Mon - Sat: 5:00 AM - 7:00 PM',
+    value: 'Mon - Sat: 7:00 AM - 7:00 PM',
     href: null,
   },
 ];
@@ -44,44 +42,22 @@ export default function Contact() {
     carDetails: '',
     message: '',
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setIsSubmitting(true);
-
+    setSubmitStatus(null);
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email || 'Not provided',
-          carDetails: formData.carDetails,
-          message: formData.message || 'None',
-          _subject: 'New Quote Request - CBD Scrap Car Removal',
-          _template: 'table',
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Submission failed');
-      }
-
-      toast.success('Thank you! We will contact you shortly with your free quote.');
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        carDetails: '',
-        message: '',
-      });
-    } catch {
-      toast.error('Something went wrong. Please call us at 0475 625 766.');
+      await submitQuote(form);
+      setSubmitStatus({ type: 'success', message: 'Thanks! Your quote request has been sent. We will contact you shortly.' });
+      setFormData({ name: '', phone: '', email: '', carDetails: '', message: '' });
+      form.reset();
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: error instanceof Error ? error.message : 'Something went wrong. Please call us instead.' });
     } finally {
       setIsSubmitting(false);
     }
@@ -103,8 +79,7 @@ export default function Contact() {
             Get Your <span className="text-brand-yellow">Free Quote</span> Today
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Call us now or fill out the form below. We'll get back to you within 
-            minutes with a competitive offer for your vehicle.
+            Call us now or fill out the form below. We'll respond as soon as possible with information about your vehicle quote.
           </p>
         </ScrollReveal>
 
@@ -117,8 +92,7 @@ export default function Contact() {
                   Contact Information
                 </h3>
                 <p className="text-gray-400 mb-8">
-                  Reach out to us through any of the following channels. Our team 
-                  is ready to assist you 24/7.
+                  Reach out to us through any of the following channels. Our team is available Monday to Saturday, 7:00 AM to 7:00 PM.
                 </p>
               </div>
 
@@ -180,6 +154,8 @@ export default function Contact() {
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-5">
+                <input type="hidden" name="_subject" value="New website quote request - Contact section" />
+                <input type="hidden" name="form_source" value="Homepage contact section" />
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-gray-400 text-sm mb-2">
@@ -257,14 +233,20 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-brand-yellow text-brand-black font-semibold py-6 rounded-lg hover:bg-brand-light-green transition-all duration-300 text-lg disabled:opacity-60"
+                  className="w-full bg-brand-yellow text-brand-black font-semibold py-6 rounded-lg hover:bg-brand-light-green transition-all duration-300 text-lg"
                 >
                   <Send className="w-5 h-5 mr-2" />
                   {isSubmitting ? 'Sending...' : 'Get My Free Quote'}
                 </Button>
 
+                {submitStatus && (
+                  <p role="status" aria-live="polite" className={`text-sm text-center ${submitStatus.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    {submitStatus.message}
+                  </p>
+                )}
+
                 <p className="text-center text-gray-500 text-sm">
-                  We respect your privacy. Your information is safe with us.
+                  Your details are sent securely so our team can prepare your quote.
                 </p>
               </form>
             </div>

@@ -14,7 +14,7 @@ const steps = [
     number: '02',
     icon: Calendar,
     title: 'Schedule Pickup',
-    description: 'Choose a convenient time. We offer same-day service across Perth and surrounding areas.',
+    description: 'Choose a collection time with our team. Same-day collection may be available depending on location and scheduling.',
     color: 'bg-brand-light-green',
   },
   {

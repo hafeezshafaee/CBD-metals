@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -14,11 +15,15 @@ const faqCategories = [
     faqs: [
       {
         question: 'How much can I get for my car?',
-        answer: 'We pay up to $9,999 depending on your vehicle\'s make, model, year, and condition. Call us for a free quote and we\'ll give you an instant offer based on current market values. Even scrap cars and non-runners receive competitive cash offers.',
+        answer: 'We pay competitive cash offers depending on your vehicle\'s make, model, year, and condition. Call us for a free quote and we\'ll give you an instant offer based on current market values. Even scrap cars and non-runners receive competitive cash offers.',
       },
       {
         question: 'When do I get paid?',
         answer: 'You receive instant cash payment on the spot when we pick up your vehicle. No waiting, no bank transfers, no delays — cash in hand the moment we take your car.',
+      },
+      {
+        question: 'Can I get cash on delivery for my scrap car?',
+        answer: 'Payment is arranged at the time of vehicle collection. Confirm the payment method and agreed amount with our team before pickup.',
       },
       {
         question: 'Are there any hidden fees?',
@@ -56,7 +61,7 @@ const faqCategories = [
     faqs: [
       {
         question: 'How quickly can you remove my car?',
-        answer: 'We offer same-day service throughout Perth and surrounding areas. Call us early in the day for same-day pickup, or schedule a time that works best for you — we work around your schedule.',
+        answer: 'Same-day collection may be available in parts of Perth, subject to scheduling. Call us to check available pickup times.',
       },
       {
         question: 'Is the car removal really free?',
@@ -94,6 +99,7 @@ const faqCategories = [
 export default function FAQPage() {
   return (
     <div className="pt-20">
+      <Seo title="Scrap Car Removal Perth FAQs | CBD Scrap Car Removal" description="Find answers about scrap car removal in Perth, cash offers, free towing, accepted vehicles, pickup arrangements and payment." path="/faq" keywords={['scrap car removal FAQs', 'cash for cars questions Perth', 'free car removal Perth', 'cash on delivery scrap car']} />
       {/* Hero */}
       <section className="py-20 lg:py-28 bg-brand-new-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '@/components/ScrollReveal';
 
@@ -21,13 +21,6 @@ const services = [
   { label: 'Car Recycling', href: '/services' },
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
-];
-
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,35 +40,14 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="text-white font-bold text-lg leading-tight block">
-                    CDB Scrap Car Removal
-                  </span>
-                  <span className="text-brand-yellow font-bold text-lg leading-tight block">
-                    Removal
+                    CBD Scrap Car Removal
                   </span>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Perth's leading scrap car removal company offering top cash for unwanted
-                vehicles. Free towing, instant payment, same-day service across
-                all Perth suburbs.
+                Scrap car removal, cash offers and vehicle collection options
+                for unwanted cars across Perth.
               </p>
-              {/* Social Links */}
-              <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, backgroundColor: '#f2f047' }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 bg-brand-dark-gray rounded-lg flex items-center justify-center text-gray-400 hover:text-brand-black transition-colors duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
             </div>
           </ScrollReveal>
 
@@ -143,7 +115,7 @@ export default function Footer() {
                 {/* <li  className="flex items-start gap-3"  >
                   <MapPin className="w-5 h-5 text-brand-yellow flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400 text-sm" >
-                    CBD Perth Western Australia
+                    Perth, Western Australia
                   </span>
                 </li> */}
                 <li className="flex items-start gap-3">
@@ -154,7 +126,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="text-gray-400 text-sm hover:text-brand-yellow transition-colors"
                   >
-                    CBD Perth Western Australia
+                    Perth, Western Australia
                   </a>
                 </li>
               </ul>
@@ -173,7 +145,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} CDB Scrap Car Removal. All Rights Reserved.
+            © {new Date().getFullYear()} CBD Scrap Car Removal. All Rights Reserved.
           </p>
           <p className="text-gray-500 text-sm text-center sm:text-left">
             Made by CBD Scrap Car Removal Team!

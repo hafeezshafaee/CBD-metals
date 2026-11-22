@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import FAQPage from './pages/FAQPage';
 import ServiceAreasPage from './pages/ServiceAreasPage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

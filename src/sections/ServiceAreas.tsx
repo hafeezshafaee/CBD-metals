@@ -87,8 +87,8 @@ export default function ServiceAreas() {
                 Need Car Removal?
               </h3>
               <p className="text-gray-400 mb-8">
-                We offer same-day service across all Perth suburbs. Call us now 
-                for a free quote and we'll be there within hours.
+                We offer collection times depend on your location and availability. Call us now 
+                for a free quote and we'll confirm an available collection time.
               </p>
 
               <div className="space-y-4 mb-8">

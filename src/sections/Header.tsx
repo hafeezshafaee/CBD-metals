@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
-  { label: 'services', href: '/services' },
+  { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -44,7 +44,7 @@ export default function Header() {
             <img
               src="/images/logo.jpeg"
               alt="CBD Scrap Car Removal"
-              className="h-20 w-30  "
+              className="h-14 md:h-16 w-auto max-w-[190px] object-contain"
             />
           </Link>
 
@@ -84,7 +84,9 @@ export default function Header() {
           <button
             className="lg:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -99,6 +101,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            id="mobile-navigation"
             className="lg:hidden bg-brand-black border-t border-brand-dark-gray overflow-hidden"
           >
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-6 flex flex-col gap-1">

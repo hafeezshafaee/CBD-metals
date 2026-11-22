@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cbdscrapcarremoval.com.au/sitemap.xml

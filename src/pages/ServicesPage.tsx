@@ -1,6 +1,6 @@
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
-import { DollarSign, Car, Truck, Recycle, Wrench, Handshake, CheckCircle, Clock, Phone, ArrowRight, Layers, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { DollarSign, Car, Truck, Recycle, Wrench, Handshake, CheckCircle, Clock, Phone, ArrowRight } from 'lucide-react';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 
 const services = [
@@ -8,7 +8,7 @@ const services = [
     icon: DollarSign,
     title: 'Cash For Cars',
     color: 'bg-brand-yellow',
-    description: 'Get top cash for any car in any condition. We pay up to $9,999 on the spot for all makes and models — running, damaged, or written off.',
+    description: 'Get top cash for any car in any condition. We pay competitive cash offers on the spot for all makes and models — running, damaged, or written off.',
     features: ['Instant cash payment', 'All makes & models', 'Any condition accepted', 'No hidden fees'],
   },
   {
@@ -23,20 +23,20 @@ const services = [
     title: 'Free Car Removal',
     color: 'bg-brand-light-blue',
     description: 'Free towing service across all Perth suburbs. Our team comes to your location, handles the vehicle, and pays you on the spot.',
-    features: ['100% free towing', 'All Perth suburbs', 'Same-day available', 'No obligation'],
+    features: ['100% free towing', 'All Perth suburbs', 'Same-day may be available', 'No obligation'],
   },
   {
     icon: Car,
     title: 'Cash For Trucks',
     color: 'bg-brand-light-yellow',
-    description: 'We buy all types of trucks, utes, and commercial vehicles. From small pickups to large commercial trucks, we pay top dollar.',
-    features: ['All truck types', 'Commercial vehicles', 'Competitive pricing', 'Fast same-day service'],
+    description: 'We buy all types of trucks, utes, and commercial vehicles. From small pickups to large commercial trucks, we offer competitive quotes.',
+    features: ['All truck types', 'Commercial vehicles', 'Competitive pricing', 'Collection by arrangement'],
   },
   {
     icon: CheckCircle,
     title: 'Cash For 4x4s',
     color: 'bg-brand-yellow',
-    description: 'Sell your 4WD or SUV for top dollar. All makes including Toyota Land Cruiser, Jeep, Ford Ranger, and more.',
+    description: 'Get a quote for your 4WD or SUV. All makes including Toyota Land Cruiser, Jeep, Ford Ranger, and more.',
     features: ['All 4WD brands', 'Working or damaged', 'Instant valuation', 'On-the-spot payment'],
   },
   {
@@ -51,65 +51,21 @@ const services = [
     title: 'Scrap Car Removal',
     color: 'bg-brand-light-blue',
     description: 'Got a scrap car taking up space? We\'ll remove it and pay you cash, no matter how old or damaged the vehicle is.',
-    features: ['Any age accepted', 'No RWC required', 'Same-day pickup', 'All paperwork handled'],
+    features: ['Any age accepted', 'Unregistered cars considered', 'Same-day may be available', 'All paperwork handled'],
   },
   {
     icon: Handshake,
     title: 'Sell My Car',
     color: 'bg-brand-light-yellow',
-    description: 'The quickest way to sell your car in Perth. Get a quote in minutes, agree on a price, and receive cash the same day.',
-    features: ['Quote in minutes', 'Best market price', 'No advertising needed', 'Instant payment'],
-  },
-  {
-    icon: Recycle,
-    title: 'Scrap Metal Collection',
-    color: 'bg-brand-light-green',
-    description: 'Free collection of all scrap metals across all Perth suburbs. Copper, aluminium, steel, brass, and more — we come to you.',
-    features: ['Free pickup service', 'All Perth suburbs', 'Same-day available', 'Large loads welcome'],
-  },
-  {
-    icon: DollarSign,
-    title: 'Cash For Metals',
-    color: 'bg-brand-yellow',
-    description: 'Top cash prices for all types of scrap metal. Ferrous, non-ferrous, mixed loads — we accept everything and pay on the spot.',
-    features: ['Instant cash payment', 'All metal types', 'Best rates in Perth', 'No hidden fees'],
-  },
-];
-
-const metalServices = [
-  {
-    icon: DollarSign,
-    title: 'Cash For Scrap Metal',
-    color: 'bg-brand-yellow',
-    description: 'Turn your unwanted scrap metal into instant cash. Best prices in Perth for copper, aluminium, steel, brass, and all other metals.',
-    features: ['Instant cash payment', 'Best prices in Perth', 'All quantities welcome', 'No hidden fees'],
-  },
-  {
-    icon: Truck,
-    title: 'Scrap Metal Collection',
-    color: 'bg-brand-light-green',
-    description: 'Free collection service across all Perth suburbs. We bring our truck and do all the loading — completely free of charge.',
-    features: ['Free pickup service', 'All Perth suburbs', 'Same-day available', 'Large loads welcome'],
-  },
-  {
-    icon: Recycle,
-    title: 'Metal Recycling',
-    color: 'bg-brand-light-blue',
-    description: 'Environmentally responsible metal recycling. All metals processed in compliance with WA environmental standards.',
-    features: ['Eco-friendly process', 'WA compliant', 'Certified recycling', 'Responsible disposal'],
-  },
-  {
-    icon: Layers,
-    title: 'Industrial Metal Removal',
-    color: 'bg-brand-light-yellow',
-    description: 'Large-scale removal for businesses, construction sites, and industrial properties. We handle heavy loads with ease.',
-    features: ['Business & industrial', 'Heavy equipment welcome', 'Site clearance', 'Flexible scheduling'],
+    description: 'A straightforward way to sell your car in Perth. Request a quote, confirm the offer, and arrange a collection time.',
+    features: ['Quote in minutes', 'Competitive quote', 'No advertising needed', 'Instant payment'],
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-20">
+      <Seo title="Scrap Car Removal & Cash for Cars Services | Perth" description="Explore scrap car removal, cash for cars, free vehicle pickup, car wrecking and recycling services across Perth. Request a no-obligation quote." path="/services" keywords={['scrap car removal Perth', 'cash for cars Perth', 'free car removal Perth', 'car wreckers Perth', 'cash for trucks Perth']} />
       {/* Hero */}
       <section className="py-20 lg:py-28 bg-brand-new-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -119,10 +75,10 @@ export default function ServicesPage() {
           <ScrollReveal className="text-center max-w-3xl mx-auto">
             <span className="inline-block bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold text-sm mb-4">Our Services</span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Everything You Need to <span className="text-brand-yellow">Sell Your Car or Metal</span>
+              Everything You Need to <span className="text-brand-yellow">Sell Your Car</span>
             </h1>
             <p className="text-lg text-gray-400 mb-8">
-              From cash for cars to scrap metal collection — we offer Perth's most comprehensive car removal and metal recycling services, all under one roof.
+              From cash for cars to free towing and eco-friendly recycling — we offer Perth's most comprehensive car removal services, all under one roof.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
@@ -172,75 +128,14 @@ export default function ServicesPage() {
             ))}
           </StaggerContainer>
 
-        </div>
-      </section>
-
-      {/* Scrap Metal Services */}
-      <section className="py-20 lg:py-28 bg-brand-new-black">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <span className="inline-block bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold text-sm mb-4">Scrap Metal Perth</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Scrap Metal Services</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Beyond cars — we also pay top cash for all types of scrap metal across Perth with free collection.
-            </p>
-          </ScrollReveal>
-
-          <StaggerContainer className="grid sm:grid-cols-2 gap-8 mb-12">
-            {metalServices.map((service) => (
-              <StaggerItem key={service.title}>
-                <motion.div
-                  whileHover={{ y: -6, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-brand-dark-gray border border-brand-dark-gray rounded-2xl p-8 h-full group hover:border-brand-yellow/30 transition-colors duration-300"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-8 h-8 text-brand-black" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                      <p className="text-gray-400 leading-relaxed mb-5">{service.description}</p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {service.features.map((feature) => (
-                          <div key={feature} className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-brand-yellow flex-shrink-0" />
-                            <span className="text-sm text-gray-300">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <ScrollReveal className="text-center">
-            <Link to="/MetalsPage">
-              <motion.span
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-brand-yellow text-brand-black font-semibold px-8 py-4 rounded-xl hover:bg-brand-light-green transition-colors duration-300"
-              >
-                View All Metal Services
-                <ArrowRight className="w-5 h-5" />
-              </motion.span>
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal delay={0.4} className="text-center">
+          {/* CTA */}
+          <ScrollReveal delay={0.4} className="text-center mt-16">
             <div className="bg-brand-new-black rounded-2xl p-10 sm:p-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Not Sure Which Service You Need?
               </h2>
               <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-                Just call us — we'll figure out the best solution for your situation and give you a free quote in minutes.
+                Just call us — we'll figure out the best solution for your situation and help you request a free quote.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
